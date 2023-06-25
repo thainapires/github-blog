@@ -1,9 +1,13 @@
-import { useState } from 'react'
+import { ThemeProvider } from "styled-components";
+import { defaultTheme } from "./styles/themes/default";
+import { GlobalStyle } from "./styles/global";
+import { Blog } from "./pages/Blog";
 
-function App() {
+export function App() {
   return (
-    <div>Teste</div>
+    <ThemeProvider theme={defaultTheme}>
+      <GlobalStyle/>
+      <Blog/>
+    </ThemeProvider>
   )
 }
-
-export default App
