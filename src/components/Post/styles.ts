@@ -1,59 +1,38 @@
 import { styled } from "styled-components";
 
-export const ProfileContainer = styled.div`
+export const PostHeaderContainer = styled.div`
+
     width: 54rem;
-    height: 13.25rem;
+    height: 10.5rem;
 
     background: ${props => props.theme["base-profile"]};
 
     border-radius: 10px;
 
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
 
-    gap: 2rem;
+    //gap: 2rem;
 
     margin-top: -5.5rem;
 
     padding-left: 2.5rem;
     padding-right: 2rem;
 
-    /*
-    padding-top: 2rem;
-    padding-left: 2.5rem;
-    padding-right: 2rem;*/
-
-    img {
-        width: 9.25rem;
-        height: 9.25rem;
-
-        border-radius: 8px;
-    }
-
 `;
 
-export const ProfileTextContent = styled.div`
-
-    h1{
-        font-size: 24px;
-        line-height: 130%;
-        color: ${props => props.theme["base-title"]}
-    }
-
-    span{
-        font-size: 16px;
-        line-height: 160%;
-    }
-   
+export const PostContainer = styled.main`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `;
 
 export const Info = styled.div`
     padding-top: 1rem;
     display: flex;
     gap: 1.5rem;
-
-    color: ${props => props.theme["base-span"]};
 
     span{
         display: flex;
@@ -62,10 +41,11 @@ export const Info = styled.div`
     }
 `;
 
-export const Title = styled.div`
+export const Links = styled.div`
+    width: 100%;
+
     display: flex;
     justify-content: space-between;
-    padding-bottom: 0.7rem;
 
     a {
         outline: none;
@@ -78,3 +58,20 @@ export const Title = styled.div`
         gap: 2px;
     }
 `;
+
+export const Title = styled.div`
+
+    padding-top: 1.6rem;
+
+    font-size: 1.5rem;
+    line-height: 130%;
+
+    color: ${props => props.theme["base-title"]};
+`;
+
+export const PostContentContainer = styled.div`
+    width: 54rem;
+    padding-top: 2rem;
+`;
+
+

@@ -5,6 +5,7 @@ export const PostContainer = styled.main`
     height: 16.25rem;
     background-color: ${props => props.theme["base-post"]};
     border-radius: 10px;
+    cursor: pointer;
 
     padding-right: 2rem;
     padding-left: 2rem;

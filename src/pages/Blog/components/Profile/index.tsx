@@ -2,7 +2,7 @@ import { ProfileContainer, ProfileTextContent, Info, Title } from "./styles";
 import profileImg from '../../../../assets/profile-image.jpeg';
 import { GithubLogo, Buildings, Users, ArrowSquareUpRight } from 'phosphor-react';
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface ProfileData {
     name: string;
@@ -26,26 +26,26 @@ export function Profile(){
         avatarUrl: ''
     });
 
-    const fetchDataForProfile = async () => {
-        try {
-          const response = await axios.get('https://api.github.com/users/thainapires');
-          console.log(response.data.bio);
-          setData({
-            name: response.data.name,
-            bio: response.data.bio,
-            username: response.data.login,
-            profileUrl: response.data.html_url,
-            work: response.data.company,
-            followers: response.data.followers + ' seguidores',
-            avatarUrl: response.data.avatar_url
-          });
-          console.log(data);
-        } catch (error) {
-          console.error('Error:', error);
-        }
-    };
-
-    fetchDataForProfile();
+    useEffect(() => {
+        const fetchDataForProfile = async () => {
+            try {
+              const response = await axios.get('https://api.github.com/users/thainapires');
+              setData({
+                name: response.data.name,
+                bio: response.data.bio,
+                username: response.data.login,
+                profileUrl: response.data.html_url,
+                work: response.data.company,
+                followers: response.data.followers + ' seguidores',
+                avatarUrl: response.data.avatar_url
+              });
+            } catch (error) {
+              console.error('Error:', error);
+            }
+        };
+    
+        fetchDataForProfile();
+    }, []);
 
     return (
         <ProfileContainer>
